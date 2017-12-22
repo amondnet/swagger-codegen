@@ -128,6 +128,9 @@ export class {{classname}} {
 {{/required}}
 {{/allParams}}
 
+
+let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+
 {{#hasQueryParams}}
         {{#useHttpClient}}
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
