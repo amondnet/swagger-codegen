@@ -128,13 +128,15 @@ export class {{classname}} {
 {{/required}}
 {{/allParams}}
 
-{{#hasQueryParams}}
-        {{#useHttpClient}}
+ {{#useHttpClient}}
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
         {{/useHttpClient}}
         {{^useHttpClient}}
         let queryParameters = new URLSearchParams('', new CustomQueryEncoderHelper());
         {{/useHttpClient}}
+
+{{#hasQueryParams}}
+
 {{#queryParams}}
         {{#isListContainer}}
         if ({{paramName}}) {
